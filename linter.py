@@ -36,7 +36,8 @@ class Scalac(Linter):
     # selectors = {}
     # word_re = None
     defaults = {
-        'lint': ''
+        'lint': [],
+        'classpath': []
     }
     inline_settings = 'lint'
     # inline_overrides = None
@@ -51,14 +52,22 @@ class Scalac(Linter):
 
         """
 
+        command = [self.executable_path, '-encoding', 'UTF8']
+
         xlint = '-Xlint'
         settings = self.get_view_settings()
         options = settings.get('lint')
 
         if options:
-            xlint += ':' + options
+            xlint += ':' + ','.join(options)
 
-        return (self.executable_path, xlint, '-encoding', 'UTF8', '*')
+        classpath = settings.get('classpath')
+
+        if classpath:
+            command += ['-classpath', ':'.join(classpath)]
+
+        return command + [xlint, '*']
+
 
     def split_match(self, match):
         """
