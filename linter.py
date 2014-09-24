@@ -19,6 +19,7 @@ class Scalac(Linter):
 
     syntax = 'scala'
     executable = 'scalac'
+    cmd = None
     version_args = '-version'
     version_re = r'(?P<version>\d+\.\d+\.\d+)'
     version_requirement = '>= 2.11'
