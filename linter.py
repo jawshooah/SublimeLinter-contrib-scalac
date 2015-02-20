@@ -61,13 +61,18 @@ class Scalac(Linter):
     inline_overrides = 'lint'
     comment_re = r'\s*/[/*]'
 
-    @memoize
+    # Internal
+    __version_satisfies = {}
+
     @classmethod
     def version_satisfies(cls, req):
         """Return whether executable_version satisfies req."""
 
-        predicate = VersionPredicate('SublimeLinter.scalac ({})'.format(req))
-        return predicate.satisfied_by(cls.executable_version)
+        if req not in cls.__version_satisfies:
+            predicate = VersionPredicate('SublimeLinter.scalac ({})'.format(req))
+            cls.__version_satisfies[req] = predicate.satisfied_by(cls.executable_version)
+
+        return cls.__version_satisfies[req]
 
     def cmd(self):
         """
