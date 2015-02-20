@@ -83,7 +83,7 @@ class Scalac(Linter):
 
         """
 
-        command = [self.executable_path, '-encoding', 'UTF8']
+        command = [self.executable_path, '-encoding', 'UTF8', '*']
 
         settings = self.get_view_settings()
         user_rules = set(settings.get('lint').split(','))
@@ -106,7 +106,7 @@ class Scalac(Linter):
             if rule is not None:
                 rule.disable() if neg else rule.enable()
 
-        rule_flags = ' '.join(rule.flag for rule in valid_rules.values())
+        command += [r.flag for r in valid_rules.values()]
 
         classpath_filename = settings.get('classpath_filename')
 
@@ -115,7 +115,7 @@ class Scalac(Linter):
             if classpath:
                 command += ['-classpath', classpath]
 
-        return command + [rule_flags, '*']
+        return command
 
     @property
     def all_rules(self):
