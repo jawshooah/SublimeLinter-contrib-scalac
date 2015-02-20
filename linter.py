@@ -122,7 +122,9 @@ class Scalac(Linter):
         """Return dict containing all rules as name: rule."""
 
         if not hasattr(self, '__rules'):
-            with open('rules.json') as json_data:
+            script_dir = path.dirname(path.realpath(__file__))
+            rules_file = path.join(script_dir, 'rules.json')
+            with open(rules_file) as json_data:
                 rules = json.load(json_data)
                 self.__rules = {rule['name']: Rule(rule) for rule in rules}
 
