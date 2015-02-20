@@ -138,5 +138,40 @@
     "version": ">= 2.11.2",
     "default": true,
     "flag": "-Xlint"
+  },
+  {
+    "name": "deprecation",
+    "description": "Emit warning and location for usages of deprecated APIs.",
+    "version": ">= 2.9.1",
+    "default": false,
+    "flag": "-deprecation"
+  },
+  {
+    "name": "unchecked",
+    "description": "Enable additional warnings where generated code depends on assumptions.",
+    "version": ">= 2.9.1",
+    "default": false,
+    "flag": "-unchecked"
+  },
+  {
+    "name": "fatal-warnings",
+    "description": "Fail the compilation if there are any warnings.",
+    "version": ">= 2.9.1",
+    "default": false,
+    "flag": "-Xfatal-warnings"
+  },
+  {
+    "name": "nowarn",
+    "description": "Generate no warnings.",
+    "version": ">= 2.9.1",
+    "default": false,
+    "flag": "-nowarn"
+  },
+  {
+    "name": "feature",
+    "description": "Emit warning and location for usages of features that should be imported explicitly.",
+    "version": ">= 2.10.0",
+    "default": false,
+    "flag": "-feature"
   }
 ]

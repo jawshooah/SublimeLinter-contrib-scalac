@@ -90,6 +90,11 @@ installed. Options with a check in the Default column are enabled by default:
 |by-name-right-associative|By-name parameter of right associative operator.|>= 2.11.2|&#10003;|
 |package-object-classes|Class or object defined in package object.|>= 2.11.2|&#10003;|
 |unsound-match|Pattern match may not be typesafe.|>= 2.11.2|&#10003;|
+|deprecation|Emit warning and location for usages of deprecated APIs.|>= 2.9.1| |
+|unchecked|Enable additional warnings where generated code depends on assumptions.|>= 2.9.1| |
+|fatal-warnings|Fail the compilation if there are any warnings.|>= 2.9.1| |
+|nowarn|Generate no warnings.|>= 2.9.1| |
+|feature|Emit warning and location for usages of features that should be imported explicitly.|>= 2.10.0| |
 
 For example, to enable `numeric-widen` and disable the default `inaccessible`,
 you would add this to the linter settings:
