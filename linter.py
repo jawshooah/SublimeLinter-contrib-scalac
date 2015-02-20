@@ -106,7 +106,7 @@ class Scalac(Linter):
             if rule is not None:
                 rule.disable() if neg else rule.enable()
 
-        rule_flags = ' '.join(rule.flag for rule in valid_rules)
+        rule_flags = ' '.join(rule.flag for rule in valid_rules.values())
 
         classpath_filename = settings.get('classpath_filename')
 
