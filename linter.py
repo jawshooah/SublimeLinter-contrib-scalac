@@ -94,7 +94,10 @@ class Scalac(Linter):
             if not (name.startswith('-') and name[1:] in user_rules)
         }
 
-        valid_rules = (rule for rule in self.all_rules if rule.is_valid)
+        valid_rules = {
+            name: rule for (name, rule) in self.all_rules.items()
+            if rule.is_valid
+        }
 
         for name in user_rules:
             neg = name.startswith('-')
