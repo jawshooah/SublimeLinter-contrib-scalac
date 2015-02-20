@@ -17,22 +17,6 @@ from distutils.versionpredicate import VersionPredicate
 from SublimeLinter.lint import Linter, util
 
 
-def memoize(function):
-    """Memoization decorator for a function taking arbitrary arguments."""
-
-    memo = {}
-
-    def wrapper(*args):
-        if args in memo:
-            return memo[args]
-        else:
-            rv = function(*args)
-            memo[args] = rv
-            return rv
-
-    return wrapper
-
-
 class Scalac(Linter):
 
     """Provides an interface to scalac."""
@@ -130,7 +114,6 @@ class Scalac(Linter):
 
         return self.__rules
 
-    @memoize
     def get_classpath(self, classpath_filename):
         """Read classpath from file and return as str."""
 
