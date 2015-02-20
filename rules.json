@@ -1,0 +1,142 @@
+[
+  {
+    "name": "check-null",
+    "description": "Warn upon selection of nullable reference.",
+    "version": ">= 2.9.1, <= 2.10.4",
+    "default": false,
+    "flag": "-Xcheck-null"
+  },
+  {
+    "name": "dead-code",
+    "description": "Warn when dead code is identified.",
+    "version": ">= 2.9.1",
+    "default": "<= 2.9.3",
+    "flag": "-Ywarn-dead-code"
+  },
+  {
+    "name": "value-discard",
+    "description": "Warn when non-Unit expression results are unused.",
+    "version": ">= 2.9.1",
+    "default": false,
+    "flag": "-Ywarn-value-discard"
+  },
+  {
+    "name": "numeric-widen",
+    "description": "Warn when numerics are widened.",
+    "version": ">= 2.9.1",
+    "default": false,
+    "flag": "-Ywarn-numeric-widen"
+  },
+  {
+    "name": "nullary-unit",
+    "description": "Warn when nullary methods return Unit.",
+    "version": ">= 2.9.1",
+    "default": true,
+    "flag": "-Ywarn-nullary-unit"
+  },
+  {
+    "name": "inaccessible",
+    "description": "Warn about inaccessible types in method signatures.",
+    "version": ">= 2.9.1",
+    "default": true,
+    "flag": "-Ywarn-inaccessible"
+  },
+  {
+    "name": "nullary-override",
+    "description": "Warn when non-nullary `def f()` overrides nullary `def f`.",
+    "version": ">= 2.9.1",
+    "default": true,
+    "flag": "-Ywarn-nullary-override"
+  },
+  {
+    "name": "adapted-args",
+    "description": "Warn if an argument list is modified to match the receiver.",
+    "version": ">= 2.10.0",
+    "default": true,
+    "flag": "-Ywarn-adapted-args"
+  },
+  {
+    "name": "infer-any",
+    "description": "Warn when a type argument is inferred to be `Any`.",
+    "version": ">= 2.11.0",
+    "default": true,
+    "flag": "-Ywarn-infer-any"
+  },
+  {
+    "name": "unused",
+    "description": "Warn when local and private vals, vars, defs, and types are unused.",
+    "version": ">= 2.11.0",
+    "default": false,
+    "flag": "-Ywarn-unused"
+  },
+  {
+    "name": "unused-import",
+    "description": "Warn when imports are unused.",
+    "version": ">= 2.11.0",
+    "default": false,
+    "flag": "-Ywarn-unused-import"
+  },
+  {
+    "name": "missing-interpolator",
+    "description": "A string literal appears to be missing an interpolator id.",
+    "version": ">= 2.11.2",
+    "default": true,
+    "flag": "-Xlint"
+  },
+  {
+    "name": "doc-detached",
+    "description": "A ScalaDoc comment appears to be detached from its element.",
+    "version": ">= 2.11.2",
+    "default": true,
+    "flag": "-Xlint"
+  },
+  {
+    "name": "private-shadow",
+    "description": "A private field (or class parameter) shadows a superclass field.",
+    "version": ">= 2.11.2",
+    "default": true,
+    "flag": "-Xlint"
+  },
+  {
+    "name": "poly-implicit-overload",
+    "description": "Parameterized overloaded implicit methods are not visible as view bounds.",
+    "version": ">= 2.11.2",
+    "default": true,
+    "flag": "-Xlint"
+  },
+  {
+    "name": "option-implicit",
+    "description": "Option.apply used implicit view.",
+    "version": ">= 2.11.2",
+    "default": true,
+    "flag": "-Xlint"
+  },
+  {
+    "name": "delayedinit-select",
+    "description": "Selecting member of DelayedInit.",
+    "version": ">= 2.11.2",
+    "default": true,
+    "flag": "-Xlint"
+  },
+  {
+    "name": "by-name-right-associative",
+    "description": "By-name parameter of right associative operator.",
+    "version": ">= 2.11.2",
+    "default": true,
+    "flag": "-Xlint"
+  },
+  {
+    "name": "package-object-classes",
+    "description": "Class or object defined in package object.",
+    "version": ">= 2.11.2",
+    "default": true,
+    "flag": "-Xlint"
+  },
+  {
+    "name": "unsound-match",
+    "description": "Pattern match may not be typesafe.",
+    "version": ">= 2.11.2",
+    "default": true,
+    "flag": "-Xlint"
+  }
+]
