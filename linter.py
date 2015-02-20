@@ -203,8 +203,10 @@ class Rule:
 
     def enable(self):
         """Enable this rule."""
+
         self.__enabled = True
 
     def disable(self):
         """Disable this rule."""
+
         self.__enabled = False
