@@ -1,49 +1,131 @@
 SublimeLinter-contrib-scalac
 ================================
 
-[![Build Status](https://travis-ci.org/SublimeLinter/SublimeLinter-contrib-scalac.svg?branch=master)](https://travis-ci.org/SublimeLinter/SublimeLinter-contrib-scalac)
+[![Build Status][travis-badge]][travis]
 
-This linter plugin for [SublimeLinter][docs] provides an interface to [scalac](__linter_homepage__). It will be used with files that have the “__syntax__” syntax.
+This linter plugin for [SublimeLinter][docs] provides an interface to
+[scalac][scalac]. It will be used with files that have the “scala” syntax.
+
+##### IMPORTANT!
+Please note that because `scalac` requires a complete directory context in order
+to work, this linter plugin currently will only lint a file **when it has been
+saved**. As soon as you modify the file, all linter marks will be cleared.
 
 ## Installation
-SublimeLinter 3 must be installed in order to use this plugin. If SublimeLinter 3 is not installed, please follow the instructions [here][installation].
+SublimeLinter 3 must be installed in order to use this plugin. If SublimeLinter
+3 is not installed, please follow the instructions [here][installation].
 
 ### Linter installation
-Before using this plugin, you must ensure that `scalac` is installed on your system. To install `scalac`, do the following:
+Before using this plugin, you must ensure that `scalac` is installed on your
+system. `scalac` is part of the `scala` developer SDK, which can be downloaded
+[here][scala-download].
 
-1. Install Other.
-
-1. Install `scalac` by typing the following in a terminal:
-   ```
-   <package manager> install scalac
-   ```
-
-
-**Note:** This plugin requires `scalac` __version__ or later.
+**Note:** This plugin requires Scala 2.9.1 or later.
 
 ### Linter configuration
-In order for `scalac` to be executed by SublimeLinter, you must ensure that its path is available to SublimeLinter. Before going any further, please read and follow the steps in [“Finding a linter executable”](http://sublimelinter.readthedocs.org/en/latest/troubleshooting.html#finding-a-linter-executable) through “Validating your PATH” in the documentation.
+In order for `scalac` to be executed by SublimeLinter, you must ensure that its
+path is available to SublimeLinter. Before going any further, please read and
+follow the steps in [“Finding a linter executable”][finding-executable] through
+“Validating your PATH” in the documentation.
 
-Once you have installed and configured `scalac`, you can proceed to install the SublimeLinter-contrib-scalac plugin if it is not yet installed.
+Once you have installed and configured `scalac`, you can proceed to install the
+SublimeLinter-contrib-scalac plugin if it is not yet installed.
 
 ### Plugin installation
-Please use [Package Control][pc] to install the linter plugin. This will ensure that the plugin will be updated when new versions are available. If you want to install from source so you can modify the source code, you probably know what you are doing so we won’t cover that here.
+Please use [Package Control][pc] to install the linter plugin. This will ensure
+that the plugin will be updated when new versions are available. If you want to
+install from source so you can modify the source code, you probably know what
+you are doing so we won’t cover that here.
 
 To install via Package Control, do the following:
 
-1. Within Sublime Text, bring up the [Command Palette][cmd] and type `install`. Among the commands you should see `Package Control: Install Package`. If that command is not highlighted, use the keyboard or mouse to select it. There will be a pause of a few seconds while Package Control fetches the list of available plugins.
+1. Within Sublime Text, bring up the [Command Palette][cmd] and type `install`.
+   Among the commands you should see `Package Control: Install Package`. If that
+   command is not highlighted, use the keyboard or mouse to select it. There
+   will be a pause of a few seconds while Package Control fetches the list of
+   available plugins.
 
-1. When the plugin list appears, type `scalac`. Among the entries you should see `SublimeLinter-contrib-scalac`. If that entry is not highlighted, use the keyboard or mouse to select it.
+1. When the plugin list appears, type `scalac`. Among the entries you should see
+   `SublimeLinter-contrib-scalac`. If that entry is not highlighted, use the
+   keyboard or mouse to select it.
 
 ## Settings
-For general information on how SublimeLinter works with settings, please see [Settings][settings]. For information on generic linter settings, please see [Linter Settings][linter-settings].
+For general information on how SublimeLinter works with settings, please see
+[Settings][settings]. For information on generic linter settings, please see
+[Linter Settings][linter-settings].
 
-In addition to the standard SublimeLinter settings, SublimeLinter-contrib-scalac provides its own settings. Those marked as “Inline Setting” or “Inline Override” may also be [used inline][inline-settings].
+In addition to the standard SublimeLinter settings, SublimeLinter-contrib-scalac
+provides its own settings. Those marked as “Inline Setting” or “Inline Override”
+may also be [used inline][inline-settings].
 
 |Setting|Description|Inline Setting|Inline Override|
 |:------|:----------|:------------:|:-------------:|
-|foo|Something.|&#10003;| |
-|bar|Something else.| |&#10003;|
+|lint|A comma-delimited list of rules to apply.| |&#10003;|
+|classpath_filename|Name of file containing semicolon-delimited classpath.|&#10003;| |
+
+### `lint`
+
+Valid rules for the `lint` option depend on the version of Scala you have
+installed. Options with a check in the Default column are enabled by default:
+
+|Rule|Description|Scala Version|Default|
+|:---|:----------|:-----------:|:-----:|
+|check-null|Warn upon selection of nullable reference.|2.9.1-2.10.4| |
+|dead-code|Warn when dead code is identified.|>= 2.9.1|2.9.1-2.9.3|
+|value-discard|Warn when non-Unit expression results are unused.|>= 2.9.1| |
+|numeric-widen|Warn when numerics are widened.|>= 2.9.1| |
+|nullary-unit|Warn when nullary methods return Unit.|>= 2.9.1|&#10003;|
+|inaccessible|Warn about inaccessible types in method signatures.|>= 2.9.1|&#10003;|
+|nullary-override|Warn when non-nullary `def f()` overrides nullary `def f`.|>= 2.9.1|&#10003;|
+|adapted-args|Warn if an argument list is modified to match the receiver.|>= 2.10.0|&#10003;|
+|infer-any|Warn when a type argument is inferred to be `Any`.|>= 2.11.0|&#10003;|
+|unused|Warn when local and private vals, vars, defs, and types are unused.|>= 2.11.0| |
+|unused-import|Warn when imports are unused.|>= 2.11.0| |
+|missing-interpolator|A string literal appears to be missing an interpolator id.|>= 2.11.2|&#10003;|
+|doc-detached|A ScalaDoc comment appears to be detached from its element.|>= 2.11.2|&#10003;|
+|private-shadow|A private field (or class parameter) shadows a superclass field.|>= 2.11.2|&#10003;|
+|poly-implicit-overload|Parameterized overloaded implicit methods are not visible as view bounds.|>= 2.11.2|&#10003;|
+|option-implicit|Option.apply used implicit view.|>= 2.11.2|&#10003;|
+|delayedinit-select|Selecting member of DelayedInit.|>= 2.11.2|&#10003;|
+|by-name-right-associative|By-name parameter of right associative operator.|>= 2.11.2|&#10003;|
+|package-object-classes|Class or object defined in package object.|>= 2.11.2|&#10003;|
+|unsound-match|Pattern match may not be typesafe.|>= 2.11.2|&#10003;|
+
+For example, to enable `numeric-widen` and disable the default `inaccessible`,
+you would add this to the linter settings:
+
+```json
+"scalac": {
+    "lint": "numeric-widen,-inaccessible"
+}
+```
+
+To change the settings in the same way for a single file, you would put this
+comment on the first or second line of the file:
+
+```scala
+// [SublimeLinter scalac-lint:numeric-widen,-inaccessible]
+```
+
+To re-enable `inaccessible` and disable `doc-detached` but keep the rest of the
+settings, you would put this comment on the first or second line of the
+file:
+
+```scala
+// [SublimeLinter scalac-lint:+inaccessible,+-doc-detached]
+```
+
+### `classpath_filename`
+
+If you specify `classpath_filename`, the linter plugin will search for
+a file with that name in the project directory and its parents. If found, it
+will use the contents of that file with `scalac -classpath` for linting.
+
+With an [`sbt`][sbt] project, you can get your full classpath by running
+
+```bash
+sbt 'export fullClasspath'
+```
 
 ## Contributing
 If you would like to contribute enhancements or fixes, please do the following:
@@ -59,7 +141,8 @@ Please note that modications should follow these coding guidelines:
 - Indent is 4 spaces.
 - Code should pass flake8 and pep257 linters.
 - Vertical whitespace helps readability, don’t be afraid to use it.
-- Please use descriptive variable names, no abbrevations unless they are very well known.
+- Please use descriptive variable names, no abbrevations unless they are very
+  well known.
 
 Thank you for helping out!
 
@@ -69,5 +152,11 @@ Thank you for helping out!
 [pc]: https://sublime.wbond.net/installation
 [cmd]: http://docs.sublimetext.info/en/sublime-text-3/extensibility/command_palette.html
 [settings]: http://sublimelinter.readthedocs.org/en/latest/settings.html
+[finding-executable]: http://sublimelinter.readthedocs.org/en/latest/troubleshooting.html#finding-a-linter-executable
 [linter-settings]: http://sublimelinter.readthedocs.org/en/latest/linter_settings.html
 [inline-settings]: http://sublimelinter.readthedocs.org/en/latest/settings.html#inline-settings
+[scalac]: http://www.scala-lang.org/old/sites/default/files/linuxsoft_archives/docu/files/tools/scalac.html
+[scala-download]: http://www.scala-lang.org/download/
+[sbt]: http://www.scala-sbt.org/
+[travis]: https://travis-ci.org/jawshooah/SublimeLinter-contrib-scalac
+[travis-badge]: https://travis-ci.org/jawshooah/SublimeLinter-contrib-scalac.svg?branch=master
