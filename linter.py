@@ -171,11 +171,11 @@ class Rule:
 
         self.name = json_data['name']
         self.description = json_data['description']
+        self.__flag = json_data['flag']
+        self.__version_req = json_data['version']
         self.__valid = None
         self.__default = json_data['default']
         self.__enabled = self.is_default
-        self.__flag = json_data['flag']
-        self.__version_req = json_data['version']
 
     @property
     def flag(self):
