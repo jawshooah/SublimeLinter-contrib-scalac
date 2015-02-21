@@ -111,8 +111,8 @@ Or as a list:
 ```json
 "scalac": {
     "lint": [
-      "numeric-widen",
-      "-inaccessible"
+        "numeric-widen",
+        "-inaccessible"
     ]
 }
 ```
@@ -147,7 +147,7 @@ You may specify `classpath` as a string:
 
 ```json
 "scalac": {
-  "classpath": "$PROJECT_PATH/target/scala-2.11/classes:$PROJECT_PATH/lib/lib.jar"
+    "classpath": "$PROJECT_PATH/target/scala-2.11/classes:$PROJECT_PATH/lib/lib.jar"
 }
 ```
 
@@ -155,10 +155,10 @@ Or as a list:
 
 ```json
 "scalac": {
-  "classpath": [
-    "$PROJECT_PATH/target/scala-2.11/classes",
-    "$PROJECT_PATH/lib/lib.jar"
-  ]
+    "classpath": [
+        "$PROJECT_PATH/target/scala-2.11/classes",
+        "$PROJECT_PATH/lib/lib.jar"
+    ]
 }
 ```
 
