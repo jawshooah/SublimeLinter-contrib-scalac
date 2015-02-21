@@ -39,9 +39,10 @@ class Scalac(Linter):
     error_stream = util.STREAM_STDERR
     defaults = {
         'lint': '',
+        'classpath': '',
         'classpath_filename': ''
     }
-    inline_settings = 'classpath_filename'
+    inline_settings = ['classpath', 'classpath_filename']
     inline_overrides = 'lint'
     comment_re = r'\s*/[/*]'
 
@@ -92,12 +93,22 @@ class Scalac(Linter):
 
         command += [r.flag for r in valid_rules.values()]
 
+        classpath = settings.get('classpath')
+
+        if isinstance(classpath, list) and all(isinstance(item, str) for item in classpath):
+            classpath = ':'.join(classpath)
+        elif not isinstance(classpath, str):
+            classpath = ''
+
         classpath_filename = settings.get('classpath_filename')
 
         if classpath_filename:
-            classpath = self.get_classpath(classpath_filename)
-            if classpath:
-                command += ['-classpath', classpath]
+            classpath_from_file = self.get_classpath(classpath_filename)
+            if classpath_from_file:
+                classpath += ':{}'.format(classpath_from_file)
+
+        if classpath:
+            command += ['-classpath', classpath]
 
         return command
 

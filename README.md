@@ -58,10 +58,11 @@ In addition to the standard SublimeLinter settings, SublimeLinter-contrib-scalac
 provides its own settings. Those marked as “Inline Setting” or “Inline Override”
 may also be [used inline][inline-settings].
 
-|Setting|Description|Inline Setting|Inline Override|
-|:------|:----------|:------------:|:-------------:|
-|lint|A comma-delimited list of rules to apply.| |&#10003;|
-|classpath_filename|Name of file containing semicolon-delimited classpath.|&#10003;| |
+|Setting|Type|Description|Inline Setting|Inline Override|
+|:------|:---|:----------|:------------:|:-------------:|
+|lint|`str`|A comma-delimited list of rules to apply.| |&#10003;|
+|classpath|`str`\|`list`|A colon-delimited list of classpath entries.|&#10003;| |
+|classpath_filename|`str`|Name of file containing colon-delimited classpath.|&#10003;| |
 
 ### `lint`
 
@@ -120,11 +121,44 @@ file:
 // [SublimeLinter scalac-lint:+inaccessible,+-doc-detached]
 ```
 
+### `classpath`
+
+If you specify `classpath`, the linter plugin will use the given entries as
+input to `scalac -classpath`.
+
+With an [`sbt`][sbt] project, you can get your full classpath by running
+
+```bash
+sbt 'export fullClasspath'
+```
+
+You may specify `classpath` as a string:
+
+```json
+"scalac": {
+  "classpath": "$PROJECT_PATH/target/scala-2.11/classes:$PROJECT_PATH/lib/lib.jar"
+}
+```
+
+Or as a list:
+
+```json
+"scalac": {
+  "classpath": [
+    "$PROJECT_PATH/target/scala-2.11/classes",
+    "$PROJECT_PATH/lib/lib.jar"
+  ]
+}
+```
+
 ### `classpath_filename`
 
 If you specify `classpath_filename`, the linter plugin will search for
 a file with that name in the project directory and its parents. If found, it
 will use the contents of that file with `scalac -classpath` for linting.
+
+If both `classpath` and `classpath_filename` are specified, their values will be
+merged.
 
 The contents of the file must be a colon-delimited list of paths for the JVM to
 search during compilation. For example:
@@ -138,12 +172,6 @@ You can also add whitespace between classpath entries for better readability:
 ```
 :/path/to/project/classes
 :/path/to/project/libs/lib.jar
-```
-
-With an [`sbt`][sbt] project, you can get your full classpath by running
-
-```bash
-sbt 'export fullClasspath'
 ```
 
 ## Contributing
