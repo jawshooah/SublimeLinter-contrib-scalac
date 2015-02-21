@@ -126,6 +126,20 @@ If you specify `classpath_filename`, the linter plugin will search for
 a file with that name in the project directory and its parents. If found, it
 will use the contents of that file with `scalac -classpath` for linting.
 
+The contents of the file must be a colon-delimited list of paths for the JVM to
+search during compilation. For example:
+
+```
+/path/to/project/classes:/path/to/project/libs/lib.jar
+```
+
+You can also add whitespace between classpath entries for better readability:
+
+```
+:/path/to/project/classes
+:/path/to/project/libs/lib.jar
+```
+
 With an [`sbt`][sbt] project, you can get your full classpath by running
 
 ```bash

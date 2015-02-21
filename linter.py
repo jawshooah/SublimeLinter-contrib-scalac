@@ -117,14 +117,19 @@ class Scalac(Linter):
     def get_classpath(self, classpath_filename):
         """Read classpath from file and return as str."""
 
-        classpath_file = util.find_file(
+        def strip_ws(cp_data):
+            entries = cp_data.split(':')
+            return ':'.join(x.strip() for x in entries)
+
+        cp_path = util.find_file(
             path.dirname(self.filename),
             classpath_filename
         )
 
-        if classpath_file:
-            with open(classpath_file, 'r') as cp:
-                return cp.read().strip()
+        if cp_path:
+            with open(cp_path, 'r') as cp_file:
+                cp_data = cp_file.read()
+                return strip_ws(cp_data)
 
     def split_match(self, match):
         """
