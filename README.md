@@ -60,7 +60,7 @@ may also be [used inline][inline-settings].
 
 |Setting|Type|Description|Inline Setting|Inline Override|
 |:------|:---|:----------|:------------:|:-------------:|
-|lint|`str`|A comma-delimited list of rules to apply.| |&#10003;|
+|lint|`str`\|`list`|A comma-delimited list of rules to apply.| |&#10003;|
 |classpath|`str`\|`list`|A colon-delimited list of classpath entries.|&#10003;| |
 |classpath_filename|`str`|Name of file containing colon-delimited classpath.|&#10003;| |
 
@@ -103,6 +103,17 @@ you would add this to the linter settings:
 ```json
 "scalac": {
     "lint": "numeric-widen,-inaccessible"
+}
+```
+
+Or as a list:
+
+```json
+"scalac": {
+    "lint": [
+      "numeric-widen",
+      "-inaccessible"
+    ]
 }
 ```
 

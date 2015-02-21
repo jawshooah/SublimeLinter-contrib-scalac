@@ -71,7 +71,13 @@ class Scalac(Linter):
         command = [self.executable_path, '-encoding', 'UTF8', '*']
 
         settings = self.get_view_settings()
-        user_rules = set(settings.get('lint').split(','))
+
+        user_rules = settings.get('lint')
+
+        if isinstance(user_rules, str):
+            user_rules = user_rules.split(',')
+        elif not isinstance(user_rules, list):
+            user_rules = []
 
         # Positive overrides negative
         user_rules = {
