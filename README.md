@@ -202,6 +202,11 @@ Please note that modications should follow these coding guidelines:
 - Please use descriptive variable names, no abbrevations unless they are very
   well known.
 
+##### IMPORTANT!
+Also note that this repository uses [overcommit][overcommit] as a validation
+tool. Before making any changes, please [install overcommit][overcommit-install]
+in your local repository.
+
 Thank you for helping out!
 
 [docs]: http://sublimelinter.readthedocs.org
@@ -212,6 +217,8 @@ Thank you for helping out!
 [settings]: http://sublimelinter.readthedocs.org/en/latest/settings.html
 [finding-executable]: http://sublimelinter.readthedocs.org/en/latest/troubleshooting.html#finding-a-linter-executable
 [linter-settings]: http://sublimelinter.readthedocs.org/en/latest/linter_settings.html
+[overcommit]: https://github.com/causes/overcommit
+[overcommit-install]: https://github.com/causes/overcommit#installation
 [inline-settings]: http://sublimelinter.readthedocs.org/en/latest/settings.html#inline-settings
 [scalac]: http://www.scala-lang.org/old/sites/default/files/linuxsoft_archives/docu/files/tools/scalac.html
 [scala-download]: http://www.scala-lang.org/download/
