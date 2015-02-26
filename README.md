@@ -7,9 +7,9 @@ This linter plugin for [SublimeLinter][docs] provides an interface to
 [scalac][scalac]. It will be used with files that have the “scala” syntax.
 
 ##### IMPORTANT!
-Please note that because `scalac` requires a complete directory context in order
-to work, this linter plugin currently will only lint a file **when it has been
-saved**. As soon as you modify the file, all linter marks will be cleared.
+Please note that because `scalac` requires a complete directory context in
+order to work, this linter plugin currently will only lint a file **when it has
+been saved**. As soon as you modify the file, all linter marks will be cleared.
 
 ## Installation
 SublimeLinter 3 must be installed in order to use this plugin. If SublimeLinter
@@ -40,23 +40,24 @@ you are doing so we won’t cover that here.
 To install via Package Control, do the following:
 
 1. Within Sublime Text, bring up the [Command Palette][cmd] and type `install`.
-   Among the commands you should see `Package Control: Install Package`. If that
-   command is not highlighted, use the keyboard or mouse to select it. There
-   will be a pause of a few seconds while Package Control fetches the list of
-   available plugins.
+   Among the commands you should see `Package Control: Install Package`. If
+   that command is not highlighted, use the keyboard or mouse to select it.
+   There will be a pause of a few seconds while Package Control fetches the
+   list of available plugins.
 
-1. When the plugin list appears, type `scalac`. Among the entries you should see
-   `SublimeLinter-contrib-scalac`. If that entry is not highlighted, use the
-   keyboard or mouse to select it.
+1. When the plugin list appears, type `scalac`. Among the entries you should
+   see `SublimeLinter-contrib-scalac`. If that entry is not highlighted, use
+   the keyboard or mouse to select it.
 
 ## Settings
 For general information on how SublimeLinter works with settings, please see
 [Settings][settings]. For information on generic linter settings, please see
 [Linter Settings][linter-settings].
 
-In addition to the standard SublimeLinter settings, SublimeLinter-contrib-scalac
-provides its own settings. Those marked as “Inline Setting” or “Inline Override”
-may also be [used inline][inline-settings].
+In addition to the standard SublimeLinter settings,
+SublimeLinter-contrib-scalac provides its own settings. Those marked as
+“Inline Setting” or “Inline Override” may also be
+[used inline][inline-settings].
 
 |Setting|Type|Description|Inline Setting|Inline Override|
 |:------|:---|:----------|:------------:|:-------------:|
@@ -168,8 +169,8 @@ If you specify `classpath_filename`, the linter plugin will search for
 a file with that name in the project directory and its parents. If found, it
 will use the contents of that file with `scalac -classpath` for linting.
 
-If both `classpath` and `classpath_filename` are specified, their values will be
-merged.
+If both `classpath` and `classpath_filename` are specified, their values will
+be merged.
 
 The contents of the file must be a colon-delimited list of paths for the JVM to
 search during compilation. For example:
@@ -204,8 +205,8 @@ Please note that modifications should follow these coding guidelines:
 
 ##### IMPORTANT!
 Also note that this repository uses [overcommit][overcommit] as a validation
-tool. Before making any changes, please [install overcommit][overcommit-install]
-in your local repository.
+tool. Before making any changes, please
+[install overcommit][overcommit-install] in your local repository.
 
 Thank you for helping out!
 
