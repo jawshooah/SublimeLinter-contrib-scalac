@@ -209,19 +209,19 @@ in your local repository.
 
 Thank you for helping out!
 
-[docs]: http://sublimelinter.readthedocs.org
-[installation]: http://sublimelinter.readthedocs.org/en/latest/installation.html
-[locating-executables]: http://sublimelinter.readthedocs.org/en/latest/usage.html#how-linter-executables-are-located
-[pc]: https://sublime.wbond.net/installation
 [cmd]: http://docs.sublimetext.info/en/sublime-text-3/extensibility/command_palette.html
-[settings]: http://sublimelinter.readthedocs.org/en/latest/settings.html
+[docs]: http://sublimelinter.readthedocs.org
 [finding-executable]: http://sublimelinter.readthedocs.org/en/latest/troubleshooting.html#finding-a-linter-executable
+[inline-settings]: http://sublimelinter.readthedocs.org/en/latest/settings.html#inline-settings
+[installation]: http://sublimelinter.readthedocs.org/en/latest/installation.html
 [linter-settings]: http://sublimelinter.readthedocs.org/en/latest/linter_settings.html
+[locating-executables]: http://sublimelinter.readthedocs.org/en/latest/usage.html#how-linter-executables-are-located
 [overcommit]: https://github.com/causes/overcommit
 [overcommit-install]: https://github.com/causes/overcommit#installation
-[inline-settings]: http://sublimelinter.readthedocs.org/en/latest/settings.html#inline-settings
+[pc]: https://sublime.wbond.net/installation
+[sbt]: http://www.scala-sbt.org/
 [scalac]: http://www.scala-lang.org/old/sites/default/files/linuxsoft_archives/docu/files/tools/scalac.html
 [scala-download]: http://www.scala-lang.org/download/
-[sbt]: http://www.scala-sbt.org/
+[settings]: http://sublimelinter.readthedocs.org/en/latest/settings.html
 [travis]: https://travis-ci.org/jawshooah/SublimeLinter-contrib-scalac
 [travis-badge]: https://travis-ci.org/jawshooah/SublimeLinter-contrib-scalac.svg?branch=master
