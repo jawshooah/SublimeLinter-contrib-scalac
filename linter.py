@@ -37,6 +37,7 @@ class Scalac(Linter):
     multiline = True
     tempfile_suffix = '-'
     error_stream = util.STREAM_STDERR
+    word_re = r'^(\w+|([\'"]).+\2)'
     defaults = {
         'lint': '',
         'classpath': '',
