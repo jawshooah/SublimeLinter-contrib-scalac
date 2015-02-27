@@ -98,12 +98,12 @@ installed. Options with a check in the Default column are enabled by default:
 |nowarn|Generate no warnings.|>= 2.9.1| |
 |feature|Emit warning and location for usages of features that should be imported explicitly.|>= 2.10.0| |
 
-For example, to enable `numeric-widen` and disable the default `inaccessible`,
-you would add this to the linter settings:
+For example, to enable `numeric-widen` and `deprecation`, you would add this to
+the linter settings:
 
 ```json
 "scalac": {
-    "lint": "numeric-widen,-inaccessible"
+    "lint": "numeric-widen,deprecation"
 }
 ```
 
@@ -113,24 +113,17 @@ Or as a list:
 "scalac": {
     "lint": [
         "numeric-widen",
-        "-inaccessible"
+        "deprecation"
     ]
 }
 ```
 
-To change the settings in the same way for a single file, you would put this
-comment on the first or second line of the file:
-
-```scala
-// [SublimeLinter scalac-lint:numeric-widen,-inaccessible]
-```
-
-To re-enable `inaccessible` and disable `doc-detached` but keep the rest of the
+To enable `feature` and disable `doc-detached` but keep the rest of the
 settings, you would put this comment on the first or second line of the
 file:
 
 ```scala
-// [SublimeLinter scalac-lint:+inaccessible,+-doc-detached]
+// [SublimeLinter scalac-lint:+feature,+-doc-detached]
 ```
 
 ### `classpath`
