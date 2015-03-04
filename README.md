@@ -2,6 +2,7 @@ SublimeLinter-contrib-scalac
 ================================
 
 [![Build Status][travis-badge]][travis]
+[![Codacy Badge][codacy-badge]][codacy]
 
 This linter plugin for [SublimeLinter][docs] provides an interface to
 [scalac][scalac]. It will be used with files that have the “scala” syntax.
@@ -204,6 +205,8 @@ tool. Before making any changes, please
 Thank you for helping out!
 
 [cmd]: http://docs.sublimetext.info/en/sublime-text-3/extensibility/command_palette.html
+[codacy]: https://www.codacy.com/public/haginsjosh/SublimeLinter-contrib-scalac
+[codacy-badge]: https://www.codacy.com/project/badge/1b0457e1263c4408a1e903a4be3733d9
 [docs]: http://sublimelinter.readthedocs.org
 [finding-executable]: http://sublimelinter.readthedocs.org/en/latest/troubleshooting.html#finding-a-linter-executable
 [inline-settings]: http://sublimelinter.readthedocs.org/en/latest/settings.html#inline-settings
