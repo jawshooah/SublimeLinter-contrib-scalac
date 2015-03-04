@@ -59,44 +59,44 @@ SublimeLinter-contrib-scalac provides its own settings. Those marked as
 “Inline Setting” or “Inline Override” may also be
 [used inline][inline-settings].
 
-|Setting|Type|Description|Inline Setting|Inline Override|
-|:------|:---|:----------|:------------:|:-------------:|
-|lint|`str`\|`list`|A comma-delimited list of rules to apply.| |&#10003;|
-|classpath|`str`\|`list`|A colon-delimited list of classpath entries.|&#10003;| |
-|classpath_filename|`str`|Name of file containing colon-delimited classpath.|&#10003;| |
+|Setting           |Type         |Description                                       |Inline Setting|Inline Override|
+|:-----------------|:------------|:-------------------------------------------------|:------------:|:-------------:|
+|lint              |`str`\|`list`|A comma-delimited list of rules to apply.         |              |&#10003;       |
+|classpath         |`str`\|`list`|A colon-delimited list of classpath entries.      |&#10003;      |               |
+|classpath_filename|`str`        |Name of file containing colon-delimited classpath.|&#10003;      |               |
 
 ### `lint`
 
 Valid rules for the `lint` option depend on the version of Scala you have
 installed. Options with a check in the Default column are enabled by default:
 
-|Rule|Description|Scala Version|Default|
-|:---|:----------|:-----------:|:-----:|
-|check-null|Warn upon selection of nullable reference.|2.9.1-2.10.4| |
-|dead-code|Warn when dead code is identified.|>= 2.9.1|2.9.1-2.9.3|
-|value-discard|Warn when non-Unit expression results are unused.|>= 2.9.1| |
-|numeric-widen|Warn when numerics are widened.|>= 2.9.1| |
-|nullary-unit|Warn when nullary methods return Unit.|>= 2.9.1|&#10003;|
-|inaccessible|Warn about inaccessible types in method signatures.|>= 2.9.1|&#10003;|
-|nullary-override|Warn when non-nullary `def f()` overrides nullary `def f`.|>= 2.9.1|&#10003;|
-|adapted-args|Warn if an argument list is modified to match the receiver.|>= 2.10.0|&#10003;|
-|infer-any|Warn when a type argument is inferred to be `Any`.|>= 2.11.0|&#10003;|
-|unused|Warn when local and private vals, vars, defs, and types are unused.|>= 2.11.0| |
-|unused-import|Warn when imports are unused.|>= 2.11.0| |
-|missing-interpolator|A string literal appears to be missing an interpolator id.|>= 2.11.2|&#10003;|
-|doc-detached|A ScalaDoc comment appears to be detached from its element.|>= 2.11.2|&#10003;|
-|private-shadow|A private field (or class parameter) shadows a superclass field.|>= 2.11.2|&#10003;|
-|poly-implicit-overload|Parameterized overloaded implicit methods are not visible as view bounds.|>= 2.11.2|&#10003;|
-|option-implicit|Option.apply used implicit view.|>= 2.11.2|&#10003;|
-|delayedinit-select|Selecting member of DelayedInit.|>= 2.11.2|&#10003;|
-|by-name-right-associative|By-name parameter of right associative operator.|>= 2.11.2|&#10003;|
-|package-object-classes|Class or object defined in package object.|>= 2.11.2|&#10003;|
-|unsound-match|Pattern match may not be typesafe.|>= 2.11.2|&#10003;|
-|deprecation|Emit warning and location for usages of deprecated APIs.|>= 2.9.1| |
-|unchecked|Enable additional warnings where generated code depends on assumptions.|>= 2.9.1| |
-|fatal-warnings|Fail the compilation if there are any warnings.|>= 2.9.1| |
-|nowarn|Generate no warnings.|>= 2.9.1| |
-|feature|Emit warning and location for usages of features that should be imported explicitly.|>= 2.10.0| |
+|Rule                     |Description                                                                         |Scala Version|Default    |
+|:------------------------|:-----------------------------------------------------------------------------------|:-----------:|:---------:|
+|check-null               |Warn upon selection of nullable reference.                                          |2.9.1-2.10.4 |           |
+|dead-code                |Warn when dead code is identified.                                                  |>= 2.9.1     |2.9.1-2.9.3|
+|value-discard            |Warn when non-Unit expression results are unused.                                   |>= 2.9.1     |           |
+|numeric-widen            |Warn when numerics are widened.                                                     |>= 2.9.1     |           |
+|nullary-unit             |Warn when nullary methods return Unit.                                              |>= 2.9.1     |&#10003;   |
+|inaccessible             |Warn about inaccessible types in method signatures.                                 |>= 2.9.1     |&#10003;   |
+|nullary-override         |Warn when non-nullary `def f()` overrides nullary `def f`.                          |>= 2.9.1     |&#10003;   |
+|adapted-args             |Warn if an argument list is modified to match the receiver.                         |>= 2.10.0    |&#10003;   |
+|infer-any                |Warn when a type argument is inferred to be `Any`.                                  |>= 2.11.0    |&#10003;   |
+|unused                   |Warn when local and private vals, vars, defs, and types are unused.                 |>= 2.11.0    |           |
+|unused-import            |Warn when imports are unused.                                                       |>= 2.11.0    |           |
+|missing-interpolator     |A string literal appears to be missing an interpolator id.                          |>= 2.11.2    |&#10003;   |
+|doc-detached             |A ScalaDoc comment appears to be detached from its element.                         |>= 2.11.2    |&#10003;   |
+|private-shadow           |A private field (or class parameter) shadows a superclass field.                    |>= 2.11.2    |&#10003;   |
+|poly-implicit-overload   |Parameterized overloaded implicit methods are not visible as view bounds.           |>= 2.11.2    |&#10003;   |
+|option-implicit          |Option.apply used implicit view.                                                    |>= 2.11.2    |&#10003;   |
+|delayedinit-select       |Selecting member of DelayedInit.                                                    |>= 2.11.2    |&#10003;   |
+|by-name-right-associative|By-name parameter of right associative operator.                                    |>= 2.11.2    |&#10003;   |
+|package-object-classes   |Class or object defined in package object.                                          |>= 2.11.2    |&#10003;   |
+|unsound-match            |Pattern match may not be typesafe.                                                  |>= 2.11.2    |&#10003;   |
+|deprecation              |Emit warning and location for usages of deprecated APIs.                            |>= 2.9.1     |           |
+|unchecked                |Enable additional warnings where generated code depends on assumptions.             |>= 2.9.1     |           |
+|fatal-warnings           |Fail the compilation if there are any warnings.                                     |>= 2.9.1     |           |
+|nowarn                   |Generate no warnings.                                                               |>= 2.9.1     |           |
+|feature                  |Emit warning and location for usages of features that should be imported explicitly.|>= 2.10.0    |           |
 
 For example, to enable `numeric-widen` and `deprecation`, you would add this to
 the linter settings:
