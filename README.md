@@ -183,7 +183,7 @@ You can also add whitespace between classpath entries for better readability:
 If you would like to contribute enhancements or fixes, please do the following:
 
 1. Fork the plugin repository.
-1. Hack on a separate topic branch created from the latest `master`.
+1. Hack on a separate topic branch created from the latest `develop`.
 1. Commit and push the topic branch.
 1. Make a pull request.
 1. Be patient.  ;-)
@@ -218,4 +218,4 @@ Thank you for helping out!
 [scala-download]: http://www.scala-lang.org/download/
 [settings]: http://sublimelinter.readthedocs.org/en/latest/settings.html
 [travis]: https://travis-ci.org/jawshooah/SublimeLinter-contrib-scalac
-[travis-badge]: https://travis-ci.org/jawshooah/SublimeLinter-contrib-scalac.svg?branch=master
+[travis-badge]: https://travis-ci.org/jawshooah/SublimeLinter-contrib-scalac.svg?branch=develop
