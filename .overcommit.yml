@@ -14,5 +14,14 @@
 # https://github.com/causes/overcommit#configuration
 
 PreCommit:
+  Pep257:
+    flags: ['--ignore=D202']
+
+  Pylint:
+    enabled: false
+
   PythonFlake8:
     flags: ['--max-line-length=120']
+
+  Scalastyle:
+    enabled: false
