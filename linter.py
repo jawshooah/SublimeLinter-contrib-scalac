@@ -2,8 +2,8 @@
 # linter.py
 # Linter for SublimeLinter3, a code checking framework for Sublime Text 3
 #
-# Written by Josh Hagins
-# Copyright (c) 2014 Josh Hagins
+# Written by Joshua Hagins
+# Copyright (c) 2015 Joshua Hagins
 #
 # License: MIT
 #
