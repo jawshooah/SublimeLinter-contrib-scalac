@@ -10,6 +10,3 @@ PreCommit:
 
   PythonFlake8:
     flags: ['--max-line-length=120']
-
-  Scalastyle:
-    enabled: false
