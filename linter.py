@@ -41,7 +41,8 @@ class Scalac(Linter):
     defaults = {
         'lint': '',
         'classpath': '',
-        'classpath_filename': ''
+        'classpath_filename': '',
+        'target_directory': ''
     }
     inline_settings = ['classpath', 'classpath_filename']
     inline_overrides = 'lint'
@@ -116,6 +117,11 @@ class Scalac(Linter):
 
         if classpath:
             command += ['-classpath', classpath]
+
+        target_directory = settings.get('target_directory')
+
+        if target_directory:
+            command += ['-d', target_directory]
 
         return command
 

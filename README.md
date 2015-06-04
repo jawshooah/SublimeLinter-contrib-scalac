@@ -180,6 +180,19 @@ You can also add whitespace between classpath entries for better readability:
 :/path/to/project/libs/lib.jar
 ```
 
+### `target_directory`
+
+This setting tells `scalac` where to put generated class files. If unset, class
+files will be put in the same directory as their source files.
+
+For example:
+
+```json
+"scalac": {
+    "target_directory": "$PROJECT_PATH/target/scala-2.11/classes"
+}
+```
+
 ## Contributing
 If you would like to contribute enhancements or fixes, please do the following:
 
