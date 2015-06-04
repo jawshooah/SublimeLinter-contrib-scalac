@@ -1,0 +1,5 @@
+SublimeLinter-contrib-scalac
+-------------------------------
+
+Create the directory specified in the `target_directory` setting if it does not
+already exist.
