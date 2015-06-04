@@ -11,6 +11,7 @@
 """This module exports the Scalac plugin class."""
 
 import json
+import os
 from os import path
 from distutils.versionpredicate import VersionPredicate
 
@@ -121,6 +122,7 @@ class Scalac(Linter):
         target_directory = settings.get('target_directory')
 
         if target_directory:
+            os.makedirs(target_directory, exist_ok=True)
             command += ['-d', target_directory]
 
         return command

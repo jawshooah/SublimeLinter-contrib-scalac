@@ -182,8 +182,8 @@ You can also add whitespace between classpath entries for better readability:
 
 ### `target_directory`
 
-This setting tells `scalac` where to put generated class files. If unset, class
-files will be put in the same directory as their source files.
+This setting tells `scalac` where to put generated class files. The plugin will
+create the directory if it does not already exist.
 
 For example:
 
@@ -192,6 +192,9 @@ For example:
     "target_directory": "$PROJECT_PATH/target/scala-2.11/classes"
 }
 ```
+
+If `target_directory` is unset, class files will be put in the same directory as
+their source files.
 
 ## Contributing
 If you would like to contribute enhancements or fixes, please do the following:
