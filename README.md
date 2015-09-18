@@ -142,7 +142,7 @@ You may specify `classpath` as a string:
 
 ```json
 "scalac": {
-    "classpath": "$PROJECT_PATH/target/scala-2.11/classes:$PROJECT_PATH/lib/lib.jar"
+    "classpath": "${project}/target/scala-2.11/classes:${project}/lib/lib.jar"
 }
 ```
 
@@ -151,8 +151,8 @@ Or as a list:
 ```json
 "scalac": {
     "classpath": [
-        "$PROJECT_PATH/target/scala-2.11/classes",
-        "$PROJECT_PATH/lib/lib.jar"
+        "${project}/target/scala-2.11/classes",
+        "${project}/lib/lib.jar"
     ]
 }
 ```
@@ -189,7 +189,7 @@ For example:
 
 ```json
 "scalac": {
-    "target_directory": "$PROJECT_PATH/target/scala-2.11/classes"
+    "target_directory": "${project}/target/scala-2.11/classes"
 }
 ```
 
