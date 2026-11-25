@@ -13,7 +13,29 @@
 import json
 import os
 from os import path
-from distutils.versionpredicate import VersionPredicate
+import operator
+import re
+
+_OPS = {'<': operator.lt, '<=': operator.le, '==': operator.eq,
+        '!=': operator.ne, '>': operator.gt, '>=': operator.ge}
+
+
+def _version_tuple(v):
+    if isinstance(v, str):
+        v = v.split('.')
+    return tuple(int(x) for x in v)
+
+
+def _version_satisfies(version, req):
+    """Check version against "op X.Y[, op X.Y...]", like distutils' VersionPredicate."""
+    version = _version_tuple(version)
+    for clause in req.split(','):
+        op, ver = re.match(r'\s*(<=|>=|==|!=|<|>)\s*(\S+)', clause).groups()
+        ver = _version_tuple(ver)
+        n = max(len(version), len(ver))
+        if not _OPS[op](version + (0,) * (n - len(version)), ver + (0,) * (n - len(ver))):
+            return False
+    return True
 
 from SublimeLinter.lint import Linter, util
 
@@ -57,8 +79,7 @@ class Scalac(Linter):
         """Return whether executable_version satisfies req."""
 
         if req not in cls.__version_satisfies:
-            predicate = VersionPredicate('SublimeLinter.scalac ({})'.format(req))
-            cls.__version_satisfies[req] = predicate.satisfied_by(cls.executable_version)
+            cls.__version_satisfies[req] = _version_satisfies(cls.executable_version, req)
 
         return cls.__version_satisfies[req]
 
